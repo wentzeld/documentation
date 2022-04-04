@@ -6,11 +6,18 @@ title: 'Multi-Variable Responses'
 permalink: 'docs/multi-variable-responses/'
 whatsnext:
   {
+<<<<<<< HEAD
     'Fetch data from an Array': '/docs/api-array-response/',
     'Large Responses': '/docs/large-responses/',
     'Make an Existing Job Request': '/docs/existing-job-request/',
     'API Reference': '/docs/chainlink-framework/',
     'Contract Addresses': '/docs/decentralized-oracles-ethereum-mainnet/',
+=======
+    'Make an Existing Job Request': '/docs/existing-job-request/',
+    'API Reference': '/docs/chainlink-framework/',
+    'Contract Addresses': '/docs/decentralized-oracles-ethereum-mainnet/',
+    'Large Responses': '/docs/large-responses/',
+>>>>>>> 9396c06 (Correct multiword examples)
   }
 ---
 
@@ -22,7 +29,11 @@ This is known as **multi-variable** or **multi-word** responses.
 **Table of Contents**
 
 - [MultiWord](#multiword)
+<<<<<<< HEAD
 - [Setting the LINK token address, Oracle, and JobId](#setting-the-link-token-address-oracle-and-jobid)
+=======
+- [Choosing an Oracle and JobId](#choosing-an-oracle-and-jobid)
+>>>>>>> 9396c06 (Correct multiword examples)
 - [Make an Existing Job Request](#make-an-existing-job-request)
 
 ## MultiWord
@@ -61,7 +72,11 @@ To consume an API with multiple responses, your contract should inherit from [Ch
 >
 > Making a GET request will fail unless your deployed contract has enough LINK to pay for it. **Learn how to [Acquire testnet LINK](../acquire-link/) and [Fund your contract](../fund-your-contract/)**.
 
+<<<<<<< HEAD
 Assume that a user wants to obtain the ETH price quoted against three different currencies: _BTC_ , _USD_ and _EUR_. If they use only a single-word job (cf. [Make a Get Request](/docs/make-a-http-get-request/)), it would require three different requests. To make that more efficient, they can use multi-word responses to do it all in a single request as shown in the following example:
+=======
+Assume that a user wants to obtain the ETH price quoted against three different currencies: _BTC_ , _USD_ and _EUR_. If they use only a single-word job, it would require three different requests. To make that more efficient, they can use multi-word responses to do it all in a single request as shown in the following example:
+>>>>>>> 9396c06 (Correct multiword examples)
 
 ```solidity Kovan
 {% include 'samples/APIRequests/MultiWordConsumer.sol' %}
@@ -72,6 +87,7 @@ Assume that a user wants to obtain the ETH price quoted against three different 
     <a href="/docs/conceptual-overview/#what-is-remix" >What is Remix?</a>
 </div>
 
+<<<<<<< HEAD
 To use this contract:
 
 1. Open the [contract in Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/APIRequests/MultiWordConsumer.sol).
@@ -93,10 +109,17 @@ To use this contract:
      Note that because we are providing the urls and paths , we are not bound to Cryptocompare API.
 
 1. After few seconds, call the `btc`, `usd` , and `eur` functions. You should get a non-zero responses.
+=======
+The job spec for the Chainlink node in this example can be found [here](/docs/example-job-spec-multi-word/).
+>>>>>>> 9396c06 (Correct multiword examples)
 
 ## Setting the LINK token address, Oracle, and JobId
 
+<<<<<<< HEAD
 The [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function sets the LINK token address for the [network](/docs/link-token-contracts/) you are deploying to. The [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function sets a specific Chainlink oracle that a contract makes an API call from. The `jobId` refers to a specific job for that node to run.
+=======
+`oracle` refers to a specific Chainlink node that a contract makes an API call from, and `jobId` refers to a specific job for that node to run. Each job is unique and returns different types of data.
+>>>>>>> 9396c06 (Correct multiword examples)
 
 Each job is unique and returns different types of data. For example, a job that returns a `bytes32` variable from an API would have a different `jobId` than a job that retrieved the same data, but in the form of a `uint256` variable.
 
