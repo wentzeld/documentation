@@ -2,9 +2,16 @@
 layout: nodes.liquid
 section: ethereum
 date: Last Modified
-title: "Multi-Variable Responses"
-permalink: "docs/multi-variable-responses/"
-whatsnext: {"Make an Existing Job Request":"/docs/existing-job-request/", "API Reference":"/docs/chainlink-framework/", "Contract Addresses":"/docs/decentralized-oracles-ethereum-mainnet/", "Large Responses": "/docs/large-responses/"}
+title: 'Multi-Variable Responses'
+permalink: 'docs/multi-variable-responses/'
+whatsnext:
+  {
+    'Fetch data from an Array': '/docs/api-array-response/',
+    'Large Responses': '/docs/large-responses/',
+    'Make an Existing Job Request': '/docs/existing-job-request/',
+    'API Reference': '/docs/chainlink-framework/',
+    'Contract Addresses': '/docs/decentralized-oracles-ethereum-mainnet/',
+  }
 ---
 
 ## Overview
@@ -19,9 +26,9 @@ This is known as **multi-variable** or **multi-word** responses.
 
 **Table of Contents**
 
-+ [MultiWord](#multiword)
-+ [Choosing an Oracle and JobId](#choosing-an-oracle-and-jobid)
-+ [Make an Existing Job Request](#make-an-existing-job-request)
+- [MultiWord](#multiword)
+- [Choosing an Oracle and JobId](#choosing-an-oracle-and-jobid)
+- [Make an Existing Job Request](#make-an-existing-job-request)
 
 ## MultiWord
 
@@ -33,14 +40,14 @@ To consume an API with multiple responses, your contract should inherit from [Ch
 - Task parameters
 - Callback function signature
 
->❗️ Note on Funding Contracts
+> ❗️ Note on Funding Contracts
 >
 > Making a GET request will fail unless your deployed contract has enough LINK to pay for it. **Learn how to [Acquire testnet LINK](../acquire-link/) and [Fund your contract](../fund-your-contract/)**.
->
 
 ```solidity Kovan
 {% include 'samples/APIRequests/MultiWordConsumer.sol' %}
 ```
+
 <div class="remix-callout">
     <a href="https://remix.ethereum.org/#url=https://docs.chain.link/samples/APIRequests/MultiWordConsumer.sol" target="_blank" >Open in Remix</a>
     <a href="/docs/conceptual-overview/#what-is-remix" >What is Remix?</a>
@@ -48,7 +55,7 @@ To consume an API with multiple responses, your contract should inherit from [Ch
 
 The job spec for the Chainlink node in this example can be [found here](../example-job-spec-multi-word/).
 
-If the LINK address for targeted blockchain is not [publicly available](../link-token-contracts/) yet, replace [setPublicChainlinkToken(/)](../chainlink-framework/#setpublicchainlinktoken) with [setChainlinkToken(_address)](../chainlink-framework/#setchainlinktoken) in the constructor, where `_address` is a corresponding LINK token contract.
+If the LINK address for targeted blockchain is not [publicly available](../link-token-contracts/) yet, replace [setPublicChainlinkToken(/)](../chainlink-framework/#setpublicchainlinktoken) with [setChainlinkToken(\_address)](../chainlink-framework/#setchainlinktoken) in the constructor, where `_address` is a corresponding LINK token contract.
 
 ## Choosing an Oracle and JobId
 
