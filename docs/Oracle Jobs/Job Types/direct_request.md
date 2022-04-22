@@ -30,11 +30,11 @@ observationSource   = """
 
 See [shared fields](/docs/jobs/#shared-fields).
 
-### Unique fields\*\*
+### Unique fields
 
 - `contractAddress`: the Oracle or Operator contract to monitor for requests.
 
-**Job type specific pipeline variables**
+### Job type specific pipeline variables
 
 - `$(jobSpec.databaseID)`: the ID of the job spec in the local database. You shouldn't need this in 99% of cases.
 - `$(jobSpec.externalJobID)`: the globally-unique job ID for this job. Used to coordinate between node operators in certain cases.
