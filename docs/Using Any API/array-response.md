@@ -99,9 +99,9 @@ To use this contract:
 
 ## Choosing Link token address, Oracle and JobId
 
-[`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function allows to set the Link token address for the [network](/docs/link-token-contracts/) you are deploying to. [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function allows to set a specific Chainlink oracle that a contract makes an API call from, and `jobId` refers to a specific job for that node to run. Each job is unique and returns different types of data.
+The [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function sets the LINK token address for the [network](/docs/link-token-contracts/) you are deploying to. The [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function sets a specific Chainlink oracle that a contract makes an API call from. The `jobId` refers to a specific job for that node to run.
 
-For example, a job that returns a `bytes32` variable from an API would have a different `jobId` than a job that retrieved the same data, but in the form of a `uint256` variable.
+Each job is unique and returns different types of data. For example, a job that returns a `bytes32` variable from an API would have a different `jobId` than a job that retrieved the same data, but in the form of a `uint256` variable.
 
 [market.link](https://market.link/) provides a searchable catalogue of Oracles, Jobs and their subsequent return types.
 
