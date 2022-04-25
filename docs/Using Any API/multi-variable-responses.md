@@ -55,7 +55,7 @@ To consume an API with multiple responses, your contract should inherit from [Ch
 
 The job spec for the Chainlink node in this example can be [found here](../example-job-spec-multi-word/).
 
-If the LINK address for targeted blockchain is not [publicly available](../link-token-contracts/) yet, replace [setPublicChainlinkToken(/)](../chainlink-framework/#setpublicchainlinktoken) with [setChainlinkToken(\_address)](../chainlink-framework/#setchainlinktoken) in the constructor, where `_address` is a corresponding LINK token contract.
+If the LINK address for targeted blockchain is not [publicly available](../link-token-contracts/) yet, replace [setPublicChainlinkToken()](../chainlink-framework/#setpublicchainlinktoken) with [setChainlinkToken(\_address)](../chainlink-framework/#setchainlinktoken) in the constructor, where `_address` is a corresponding LINK token contract.
 
 ## Choosing an Oracle and JobId
 
