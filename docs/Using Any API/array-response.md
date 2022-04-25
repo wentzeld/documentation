@@ -83,19 +83,19 @@ To use this contract:
 
 1. Open the [contract in Remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/APIRequests/FetchFromArray.sol).
 
-1. Compile and deploy the contract using the Injected Web3 environment. The contract includes all the configuration variables for _Kovan_ testnet , make sure you are connected to _Kovan_. Note that in the _constructor_ , we setup:
+1. Compile and deploy the contract using the Injected Web3 environment. The contract includes all the configuration variables for the _Kovan_ testnet. Make sure your wallet is set to use _Kovan_. The _constructor_ sets the following parameters:
 
-   - The Chainlink Token address for _Kovan_ by calling [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function.
-   - The Oracle contract address for _Kovan_ by calling [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function.
-   - The `jobId`: specific job for the oracle node to run. Note that in this case, the _id_ is a _string_ data type. Hence, we need to call a job which calls an API and returns a _string_.The job spec for the Chainlink node in this example can be [found here](/docs/direct-request-get-string/).
+   - The Chainlink Token address for _Kovan_ by calling the [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function.
+   - The Oracle contract address for _Kovan_ by calling the [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function.
+   - The `jobId`: A specific job for the oracle node to run. In this case, the _id_ is a _string_ data type, so you must call a job which calls an API and returns a _string_. You can find the job spec for the Chainlink node in this example [here](/docs/direct-request-get-string/).
 
-1. Fund your contract with 0.1 LINK as shown [here](/docs/fund-your-contract/).
+1. Fund your contract with 0.1 LINK. To learn how to send LINK to contracts, read the [Fund Your Contracts](/docs/fund-your-contract/) page.
 
-1. Call `id` function to confirm `id` is empty.
+1. Call the `id` function to confirm that it is not set.
 
-1. Run `requestFirstId` function. This builds the `Chainlink.Request` using the right parameters. Note the syntax that will be used by the oracle node to parse the _path_: `req.add("path", "0,id")` ("Fetch the id at index 0 of the array").
+1. Run the `requestFirstId` function. This builds the `Chainlink.Request` using the correct parameters. The `req.add("path", "0,id")` request parameter tells the oracle node to fetch the id at index 0 of the array returned by the GET request.
 
-1. After few seconds, call `id` function. You should get a non-empty response: _bitcoin_ at the time of writing.
+1. After few seconds, call the `id` function. You should get a non-empty response: _bitcoin_
 
 ## Setting the LINK token address, Oracle, and JobId
 
