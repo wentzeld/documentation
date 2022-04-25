@@ -47,14 +47,23 @@ See [shared fields](/docs/jobs/#shared-fields).
 - `$(jobRun.logTopics)`: the log's topics (`indexed` fields).
 - `$(jobRun.logData)`: the log's data (non-`indexed` fields).
 
-## Get > String Job
+## Examples
+
+### Get > String Job
 
 Let's assume that a user makes a request to an oracle and would like to fetch a _string_ from the response.
 
 - The smart contract example can be found [here](/docs/api-array-response/).
 - The job spec example can be found [here](/docs/direct-request-get-string/).
 
-## Single-Word Example
+### Get > Bytes Job
+
+Let's assume that a user makes a request to an oracle and would like to fetch _bytes_ from the response (meaning a reponse that contains an arbitrary-length raw byte data).
+
+- The smart contract example can be found [here](/docs/large-responses/).
+- The job spec example can be found [here](/docs/direct-request-get-bytes/).
+
+### Single-Word Example
 
 For this example, assume that a user makes a request to the oracle using the following contract:
 
@@ -106,7 +115,7 @@ submit_tx  [type="ethtx" to="0x613a38AC1659769640aaE063C651F48E0250454C" data="$
 decode_log -> decode_cbor -> fetch -> parse -> encode_response -> encode_tx -> submit_tx
 ```
 
-## Multi-Word Example
+### Multi-Word Example
 
 Let's assume that a user makes a request to an oracle and would like to fetch multiple words in one single request.
 

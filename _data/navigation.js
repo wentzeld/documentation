@@ -225,11 +225,11 @@ module.exports = {
                 title: 'Large Responses',
                 url: '/docs/large-responses/',
               },
+              {
+                title: 'Make an Existing Job Request',
+                url: '/docs/existing-job-request/',
+              },
             ],
-          },
-          {
-            title: 'Make an Existing Job Request',
-            url: '/docs/existing-job-request/',
           },
           {
             title: 'Find Existing Jobs',

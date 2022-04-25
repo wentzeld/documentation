@@ -27,7 +27,7 @@ This guide explains how to make an HTTP GET request to an external API, that ret
 
 This example shows how to:
 
-- Call an API which returns a JSON array.
+- Call an API that returns a JSON array.
 - Fetch a specific information from the response.
 
 [Coingecko _GET /coins/markets/_ API](https://www.coingecko.com/en/api/documentation) returns a list of coins and their market data such as price, market cap, and volume. To check the response, you can directly paste the following URL in your browser `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false` or run this command in your terminal:
@@ -87,7 +87,7 @@ To use this contract:
 
    - The Chainlink Token address for _Kovan_ by calling the [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function.
    - The Oracle contract address for _Kovan_ by calling the [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function.
-   - The `jobId`: A specific job for the oracle node to run. In this case, the _id_ is a _string_ data type, so you must call a job which calls an API and returns a _string_. You can find the job spec for the Chainlink node in this example [here](/docs/direct-request-get-string/).
+   - The `jobId`: A specific job for the oracle node to run. In this case, the _id_ is a _string_ data type, so you must call a job that calls an API and returns a _string_. You can find the job spec for the Chainlink node in this example [here](/docs/direct-request-get-string/).
 
 1. Fund your contract with 0.1 LINK. To learn how to send LINK to contracts, read the [Fund Your Contracts](/docs/fund-your-contract/) page.
 
