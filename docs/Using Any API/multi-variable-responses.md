@@ -93,13 +93,13 @@ To use this contract:
      Note that because we are providing the urls and paths , The `MultiWordConsumer` in the example above is flexible enough to call any public API, so long as the URLs and paths are correct.
 
 1. After few seconds, call the `btc`, `usd` , and `eur` functions. You should get a non-zero responses.
-   The job spec for the Chainlink node in this example can be found [here](/docs/example-job-spec-multi-word/).
+   The job spec for the Chainlink node in this example can be found [here](/docs/direct-request-multi-word/).
 
 ## Setting the LINK token address, Oracle, and JobId
 
 The [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function sets the LINK token address for the [network](/docs/link-token-contracts/) you are deploying to. The [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function sets a specific Chainlink oracle that a contract makes an API call from. The `jobId` refers to a specific job for that node to run.Each job is unique and returns different types of data. For example, a job that returns a `bytes32` variable from an API would have a different `jobId` than a job that retrieved the same data, but in the form of a `uint256` variable.
 
-Note that this example contract is hardcoded to work on _Kovan_ testnet. The job spec for the Chainlink node in this example can be found [here](/docs/example-job-spec-multi-word/).
+Note that this example contract is hardcoded to work on _Kovan_ testnet. The job spec for the Chainlink node in this example can be found [here](/docs/direct-request-multi-word/).
 
 ## Setting the LINK token address, Oracle, and JobId
 
