@@ -80,7 +80,7 @@ To use this contract:
 
    - The Chainlink Token address for _Kovan_ by calling the [`setChainlinkToken`](/docs/chainlink-framework/#setchainlinktoken) function.
    - The Oracle contract address for _Kovan_ by calling the [`setChainlinkOracle`](/docs/chainlink-framework/#setchainlinkoracle) function.
-   - The `jobId`: A specific job for the oracle node to run. In this case, you must call a job that is specifically configured to return _ETH_ price against _BTC_, _USD_ and _EUR_. You can find the job spec for the Chainlink node in this example [here](/docs/example-job-spec-multi-word/).
+   - The `jobId`: A specific job for the oracle node to run. In this case, you must call a job that is specifically configured to return _ETH_ price against _BTC_, _USD_ and _EUR_. You can find the job spec for the Chainlink node in this example [here](/docs/direct-request-multi-word/).
 
 1. Fund your contract with 0.1 LINK. To learn how to send LINK to contracts, read the [Fund Your Contracts](/docs/fund-your-contract/) page.
 
@@ -90,7 +90,7 @@ To use this contract:
 
    - The `req.add("urlBTC", "<cryptocompareETHBTCURL>")` request parameter provides the oracle node with the [url](https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC) where to fetch the _ETH-BTC_ price. Same logic for `req.add("urlEUR", "<cryptocompareETHEURURL>")` and `req.add("urlUSD", "<cryptocompareETHUSDURL>")`.
    - THe `req.add('pathBTC', 'BTC')` request parameter tells the oracle node where to fetch the _ETH-BTC_ price in the _json_ response. Same logic for `req.add('pathUSD', 'EUR')` and `req.add('pathEUR', 'USD')`.
-     Note that because we are providing the urls and paths , we are not bound to Cryptocompare API.
+     Note that because we are providing the urls and paths , The `MultiWordConsumer` in the example above is flexible enough to call any public API, so long as the URLs and paths are correct.
 
 1. After few seconds, call the `btc`, `usd` , and `eur` functions. You should get a non-zero responses.
    The job spec for the Chainlink node in this example can be found [here](/docs/example-job-spec-multi-word/).

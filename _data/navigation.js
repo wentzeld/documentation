@@ -214,6 +214,10 @@ module.exports = {
             url: '/docs/make-a-http-get-request/',
             children: [
               {
+                title: 'Single Word Response',
+                url: '/docs/single-word-response/',
+              },
+              {
                 title: 'Multi-Variable Responses',
                 url: '/docs/multi-variable-responses/',
               },
