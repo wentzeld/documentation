@@ -8,6 +8,19 @@ permalink: 'docs/jobs/types/direct-request/'
 
 Executes a job upon receipt of an explicit request made by a user. The request is detected via a log emitted by an Oracle or Operator contract. This is similar to the legacy ethlog/runlog style of jobs.
 
+**Table of Contents**
+
+- [Spec format](#spec-format)
+  - [Shared fields](#shared-fields)
+  - [Unique fields](#unique-fields)
+  - [Job type specific pipeline variables](#job-type-specific-pipeline-variables)
+- [Examples](#examples)
+  - [Get > Uint256 Job](#get--uint256-job)
+  - [Get > String Job](#get--string-job)
+  - [Get > Bytes Job](#get--bytes-job)
+  - [Multi-Word Job](#multi-word-job)
+  - [Existing Job](#existing-job)
+
 ## Spec format
 
 ```jpv2
@@ -49,6 +62,13 @@ See [shared fields](/docs/jobs/#shared-fields).
 
 ## Examples
 
+### Get > Uint256 Job
+
+Let's assume that a user makes a request to an oracle to call a public API, retrieve a number from the response, remove any decimals and return _uint256_.
+
+- The smart contract example can be found [here](/docs/single-word-response/).
+- The job spec example can be found [here](/docs/direct-request-get-uint256/).
+
 ### Get > String Job
 
 Let's assume that a user makes a request to an oracle and would like to fetch a _string_ from the response.
@@ -58,64 +78,12 @@ Let's assume that a user makes a request to an oracle and would like to fetch a 
 
 ### Get > Bytes Job
 
-Let's assume that a user makes a request to an oracle and would like to fetch _bytes_ from the response (meaning a reponse that contains an arbitrary-length raw byte data).
+Let's assume that a user makes a request to an oracle and would like to fetch _bytes_ from the response (meaning a response that contains an arbitrary-length raw byte data).
 
 - The smart contract example can be found [here](/docs/large-responses/).
 - The job spec example can be found [here](/docs/direct-request-get-bytes/).
 
-### Single-Word Example
-
-For this example, assume that a user makes a request to the oracle using the following contract:
-
-```solidity
-contract MyClient is ChainlinkClient {
-    function doRequest(uint256 _payment) public {
-        Chainlink.Request memory req = buildChainlinkRequest(specId, address(this), this.fulfill.selector);
-        req.add("fetchURL", "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD");
-        req.add("jsonPath", "USD");
-        sendChainlinkRequest(req, _payment);
-    }
-
-    function fulfill(bytes32 requestID, uint256 answer) public {
-        // ...
-    }
-}
-```
-
-This is a single-word response because aside from the `requestID`, the fulfill callback receives only a single-word argument in the `uint256 answer`. You can fulfill this request with a direct request job using the following pipeline:
-
-```jpv2
-// First, we parse the request log and the CBOR payload inside of it
-decode_log  [type="ethabidecodelog"
-             data="$(jobRun.logData)"
-             topics="$(jobRun.logTopics)"
-             abi="SomeContractEvent(bytes32 requestID, bytes cborPayload)"]
-
-decode_cbor [type="cborparse"
-             data="$(decode_log.cborPayload)"]
-
-// Then, we use the decoded request parameters to make an HTTP fetch
-fetch [type="http" method=GET url="$(decode_cbor.fetchURL)"]
-parse [type="jsonparse" path="$(decode_cbor.jsonPath)" data="$(fetch)"]
-
-// Finally, we send a response on-chain.
-// Note that single-word responses automatically populate
-// the requestId.
-encode_response [type="ethabiencode"
-                 abi="(uint256 data)"
-                 data="{\\"data\\": $(parse) }"]
-
-encode_tx       [type="ethabiencode"
-                 abi="fulfillOracleRequest(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes32 data)"
-                 data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_response)}"
-                 ]
-
-submit_tx  [type="ethtx" to="0x613a38AC1659769640aaE063C651F48E0250454C" data="$(encode_tx)"]
-
-decode_log -> decode_cbor -> fetch -> parse -> encode_response -> encode_tx -> submit_tx
-```
-
-### Multi-Word Example
+### Multi-Word Job
 
 Let's assume that a user makes a request to an oracle and would like to fetch multiple words in one single request.
 

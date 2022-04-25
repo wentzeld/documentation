@@ -26,7 +26,7 @@ This guide explains how to make an HTTP GET request to an external API from a sm
 
 This example shows how to:
 
-- Call an API and fetch the reponse that is an arbitrary-length raw byte data.
+- Call an API and fetch the response that is an arbitrary-length raw byte data.
 
 [IPFS](https://docs.ipfs.io/) is a decentralized file system for storing and accessing files, websites, applications, and data. For this example, we stored in IPFS a _json_ file that contains an arbitrary-length raw byte data. To check the response, you can directly paste the following URL in your browser `https://ipfs.io/ipfs/QmZgsvrA1o1C8BGCrx6mHTqR1Ui1XqbCrtbMVrRLHtuPVD?filename=big-api-response.json` or run this command in your terminal:
 
@@ -82,7 +82,7 @@ To use this contract:
 
 1. Run the `requestBytes` function. This builds the `Chainlink.Request` using the correct parameters:
 
-   - The `req.add("get", "<url>")` request parameter provides the oracle node with the [url](https://ipfs.io/ipfs/QmZgsvrA1o1C8BGCrx6mHTqR1Ui1XqbCrtbMVrRLHtuPVD?filename=big-api-response.json) where to fetch the reponse.
+   - The `req.add("get", "<url>")` request parameter provides the oracle node with the [url](https://ipfs.io/ipfs/QmZgsvrA1o1C8BGCrx6mHTqR1Ui1XqbCrtbMVrRLHtuPVD?filename=big-api-response.json) where to fetch the response.
    - The `req.add('path', 'image')` request parameter tells the oracle node how to parse the response.
 
 1. After few seconds, call the `data` and `image_url` functions. You should get non-empty responses.
