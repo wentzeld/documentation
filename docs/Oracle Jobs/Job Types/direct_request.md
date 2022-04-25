@@ -88,7 +88,7 @@ Let's assume that a user makes a request to an oracle and would like to fetch _b
 Let's assume that a user makes a request to an oracle and would like to fetch multiple words in one single request.
 
 - The smart contract example can be found [here](/docs/multi-variable-responses/).
-- The job spec example can be found [here](/docs/example-job-spec-multi-word/).
+- The job spec example can be found [here](/docs/direct-request-multi-word/).
 
 ### Existing Job
 
