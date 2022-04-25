@@ -226,7 +226,7 @@ module.exports = {
                 url: '/docs/large-responses/',
               },
               {
-                title: 'Make an Existing Job Request',
+                title: 'Existing Job Request',
                 url: '/docs/existing-job-request/',
               },
             ],

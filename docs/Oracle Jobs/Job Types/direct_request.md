@@ -121,3 +121,10 @@ Let's assume that a user makes a request to an oracle and would like to fetch mu
 
 - The smart contract example can be found [here](/docs/multi-variable-responses/).
 - The job spec example can be found [here](/docs/example-job-spec-multi-word/).
+
+### Existing Job
+
+Using an _existing_ Oracle Job makes your smart contract code more succinct. Let's assume that a user makes a request to an oracle that leverages [Etherscan External Adapter](https://github.com/smartcontractkit/external-adapters-js/tree/develop/packages/sources/etherscan) to retrieve the gas price.
+
+- The smart contract example can be found [here](/docs/existing-job-request/).
+- The job spec example can be found [here](/docs/direct-request-existing-job/).
